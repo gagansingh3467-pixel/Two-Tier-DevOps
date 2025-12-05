@@ -1,276 +1,226 @@
-🚀 Two-Tier DevOps Project — Expense Tracker with Full Monitoring & CI/CD
+# 🚀 Two-Tier DevOps Project — Expense Tracker Application
 
-A complete production-grade DevOps project that deploys a Two-Tier Application (React + FastAPI) with:
+A complete **Two-Tier Expense Tracker Application** deployed on **AWS EC2** using **Docker, Nginx, Prometheus, Grafana, cAdvisor, Node Exporter**, and fully automated provisioning via **Terraform**.
 
-Docker & Docker Compose
+This project demonstrates full-stack development, containerization, monitoring, infrastructure automation, CI/CD, and cloud deployment.
 
-Nginx Reverse Proxy
+---
 
-PostgreSQL database
+## 📌 **Architecture Diagram**
 
-Prometheus + Grafana monitoring stack
+![Architecture Diagram](screenshots/Architectural diagram.png)
 
-cAdvisor + Node Exporter metrics
+---
 
-GitHub Actions CI/CD pipelines
+# 🌐 Live Application (Hosted on EC2)
 
-Terraform provisioning of EC2 + Security Groups + Elastic IP
+| Component | URL |
+|----------|-----|
+| **Frontend** (Port 80) | `http://<your-EIP>` |
+| **Backend (FastAPI Docs)** | `http://<your-EIP>:8000/docs` |
+| **Prometheus** | `http://<your-EIP>:9090` |
+| **Grafana** | `http://<your-EIP>:3000` |
+| **cAdvisor** | `http://<your-EIP>:8080` |
+| **Node Exporter Metrics** | `http://<your-EIP>:9100/metrics` |
 
-This project demonstrates real-world DevOps skills across automation, containerization, monitoring, IaC, and CI/CD.
+> Replace `<your-EIP>` with your Elastic IP.
 
-🏗 Architecture Overview
-                     ┌─────────────────────────┐
-                     │        GitHub            │
-                     │  (CI/CD Workflows)       │
-                     └─────────────┬───────────┘
-                                   │
-                                   ▼
-                       Build & Push Docker Images
-                                   │
-                     ┌─────────────┴────────────┐
-                     │          AWS EC2         │
-                     │     (Ubuntu Server)      │
-                     └─────────────┬────────────┘
-                                   │
-        ┌──────────────────────────────────────────────────────┐
-        │                 Docker Compose Stack                  │
-        │                                                      │
-        │  ┌──────────┐       ┌──────────┐       ┌──────────┐ │
-        │  │ Frontend │<────→│ Backend  │<────→│ Postgres  │ │
-        │  └──────────┘       └──────────┘       └──────────┘ │
-        │         │                 │                          │
-        │         ▼                 │                          │
-        │   ┌────────┐        ┌────────────┐                   │
-        │   │ Nginx  │        │ Prometheus │ ← Metrics from    │
-        │   └────────┘        └────────────┘   Backend / Infra │
-        │         │                 │                          │
-        │         ▼                 ▼                          │
-        │   Public Access      Grafana Dashboards ← cAdvisor   │
-        │                                                      │
-        └──────────────────────────────────────────────────────┘
+---
 
+# 📂 **Project Overview**
 
-🛠 Tech Stack
-DevOps & Automation
+### ✔ Backend  
+- Built using **FastAPI + PostgreSQL**  
+- Implements JWT authentication  
+- CRUD operations for expenses  
+- Exposes `/metrics` endpoint for Prometheus  
+- Fully containerized
 
-Docker, Docker Compose
+### ✔ Frontend  
+- React dashboard  
+- Login/Register  
+- Add & List expenses  
+- Category chart + Monthly trend  
+- Built and served via **Nginx**
 
-Nginx Reverse Proxy
+### ✔ Monitoring & Observability  
+| Tool | Purpose |
+|------|---------|
+| **Prometheus** | Scrapes all metrics |
+| **Grafana** | Dashboards for system & app |
+| **Node Exporter** | Host-level metrics |
+| **cAdvisor** | Docker container monitoring |
 
-Terraform (EC2 + SG + EIP)
+### ✔ Infrastructure (Terraform)
+- Creates:
+  - EC2 instance
+  - Security group
+  - Elastic IP
+  - SSH key pair
 
-GitHub Actions (CI/CD)
+---
 
-Monitoring Stack
+# 🛠 **Tech Stack**
 
-Prometheus
+### **Backend**
+- Python FastAPI  
+- PostgreSQL  
+- SQLAlchemy  
+- Uvicorn  
+- Prometheus Client
 
-Grafana (with Persistent Dashboards)
+### **Frontend**
+- React  
+- Chart.js  
+- Nginx  
 
-Node Exporter (system metrics)
+### **DevOps**
+- Docker  
+- Nginx reverse proxy  
+- Prometheus  
+- Grafana  
+- Node Exporter  
+- cAdvisor  
+- Terraform  
+- GitHub Actions (CI/CD)
 
-cAdvisor (container metrics)
+---
 
-Application
+# 🧱 **Screenshots**
 
-Frontend: React (Node.js build, served by Nginx)
+---
 
-Backend: FastAPI (Python)
+## 🔹 **1. FastAPI Backend — Swagger API Docs**
 
-Database: PostgreSQL
+![Backend API](screenshots/expense tracker API.png)
 
-⭐ Features
-🧩 Application
+---
 
-User registration & login
+## 🔹 **2. Frontend UI — Expense Tracker Dashboard**
 
-Expense CRUD operations
+![Frontend Dashboard](screenshots/Expense tracker dashboard.png)
 
-Category-wise visualization
+---
 
-Daily, monthly, total analytics
+## 🔹 **3. Grafana — List of Dashboards**
 
-🐳 Containerized Deployment
+![Grafana Dashboards](screenshots/Grafana dashboard.png)
 
-Multi-container orchestration using Docker Compose
+---
 
-Backend waits for PostgreSQL health before starting
+## 🔹 **4. Grafana — Node Exporter Dashboard**
 
-Nginx serves production React build
+![Node Exporter Dashboard](screenshots/grafana dashboard node exporter.png)
 
-📈 Full Monitoring Setup
+---
 
-Metrics collected from:
+## 🔹 **5. Prometheus — Target Health**
 
-Backend (FastAPI /metrics)
+![Prometheus Targets](screenshots/prometheus.png)
 
-Node Exporter (system)
+---
 
-cAdvisor (Docker containers)
+## 🔹 **6. cAdvisor — Container Resource Monitoring**
 
-Prometheus itself
+![cAdvisor](screenshots/cAdvisor.png)
 
-Grafana with persistent dashboards
+---
 
-🔁 CI/CD Pipeline
+## 🔹 **7. Node Exporter Metrics (Raw)**
 
-Auto build & test backend
+![Node Metrics](screenshots/metrics.png)
 
-Auto build & test frontend
+---
 
-Auto docker build & push on main branch
+## 🔹 **8. AWS EC2 Overview**
 
-Ready for auto-deployment to EC2
+![EC2 Overview](screenshots/EC2 instances.png)
 
-☁ Infrastructure as Code
+---
 
-Terraform provisions:
+## 🔹 **9. Two-Tier DevOps EC2 Instance Details**
 
-EC2
+![EC2 Instance Details](screenshots/two-tier-devops ec2 instance.png)
 
-Security Group
+---
 
-SSH Key Pair
+# 📦 **Docker Compose Setup**
 
-Elastic IP
-
-📂 Project Structure
-Two-Tier-DevOps/
-│── backend/
-│   ├── app/
-│   │   ├── auth.py
-│   │   ├── crud.py
-│   │   ├── main.py
-│   ├── requirements.txt
-│   └── Dockerfile
-│
-│── frontend/
-│   ├── public/
-│   ├── src/
-│   ├── package.json
-│   └── Dockerfile
-│
-│── nginx/
-│   └── default.conf
-│
-│── prometheus.yml
-│── docker-compose.yml
-│
-│── .github/workflows/
-│   ├── backend-ci.yml
-│   ├── frontend-ci.yml
-│   └── ci-cd.yml
-│
-└── README.md
-
-🚀 How to Deploy (EC2)
-1. Clone repo
-git clone https://github.com/gagansingh3467-pixel/Two-Tier-DevOps
-cd Two-Tier-DevOps
-
-2. Install Docker
-sudo apt update
-sudo apt install docker.io docker-compose-plugin -y
-sudo systemctl enable docker
-sudo usermod -aG docker $USER
-
-3. Deploy
+```bash
 docker compose up -d --build
+Creates containers:
 
-📊 Monitoring Endpoints
-Service	URL
-Frontend	http://<EC2-IP>
-Backend API	http://<EC2-IP>:8000
-Prometheus	http://<EC2-IP>:9090
-Grafana	http://<EC2-IP>:3000
-cAdvisor	http://<EC2-IP>:8080
-Node Exporter	http://<EC2-IP>:9100/metrics
-📈 Grafana Dashboards Include
+Service	Port
+backend	8000
+frontend (via Nginx)	80
+postgres	internal
+prometheus	9090
+grafana	3000
+node_exporter	9100
+cadvisor	8080
 
-System resource usage
+⚙️ CI/CD with GitHub Actions
+Backend Workflow
+.github/workflows/backend-ci.yml
 
-Docker container CPU/Mem/IO
+Install dependencies
 
-API performance
+Run tests
 
-Request latency
+Build docker image
 
-DB query metrics
+Frontend Workflow
+.github/workflows/frontend-ci.yml
 
-⚙️ Terraform Deployment
-Initialize Terraform
+Install Node dependencies
+
+Build React
+
+Lint
+
+CD Workflow
+You can extend this to auto-deploy to EC2 using SSH or GitHub Runner.
+
+☁️ Terraform Infrastructure
+Resources Created
+✔ EC2 Instance
+✔ Security Group
+✔ Elastic IP
+✔ SSH Key Pair
+
+Deploy Infrastructure
+bash
+Copy code
 terraform init
-
-Apply infrastructure
 terraform apply -auto-approve
+🚀 How to Deploy on EC2
+ssh -i your-key.pem ubuntu@your-EIP
 
+Install Docker
 
-Terraform provisions:
+Clone repo:
 
-EC2 instance
+bash
+Copy code
+git clone https://github.com/<your-username>/Two-Tier-DevOps.git
+cd Two-Tier-DevOps
+Run:
 
-Elastic IP
+bash
+Copy code
+docker compose up -d --build
+📝 Future Improvements
+Implement GitHub Actions CD pipeline to auto-deploy
 
-Security Group
+Add alerting rules in Prometheus
 
-Key Pair
+Add Loki + Promtail for log aggregation
 
-🔄 CI/CD Pipelines
-backend-ci.yml
+Use RDS instead of local Postgres
 
-Installs Python
+Build AMI using Packer
 
-Runs tests
-
-Builds Docker image
-
-frontend-ci.yml
-
-Installs Node
-
-Runs tests
-
-Builds production bundle
-
-ci-cd.yml
-
-On push to main:
-
-Builds backend + frontend Docker images
-
-Pushes to GitHub Container Registry
-
-📸 Screenshots (Add your images here)
-![App Dashboard](screenshots/dashboard.png)
-![Grafana](screenshots/grafana.png)
-![Prometheus Targets](screenshots/prometheus_targets.png)
-![Architecture Diagram](screenshots/architecture.png)
-
-
-Create a folder:
-
-mkdir screenshots
-
-
-Drop your images in, and they will automatically show.
-
-🧑‍💼 Why This Project Is Valuable for Recruiters
-
-This project demonstrates REAL DevOps experience:
-
-✔ Infrastructure provisioning
-✔ Container orchestration
-✔ Monitoring & alerting
-✔ CI/CD automation
-✔ Reverse proxy configuration
-✔ Secure environment variables
-✔ Microservices understanding
-
-This is exactly what companies expect from DevOps engineers.
-
-🤝 Contact
-
+👤 Author
 Gagandeep Singh
+DevOps & Cloud Engineer
 GitHub: https://github.com/gagansingh3467-pixel
-
-Open to DevOps engineering roles!
