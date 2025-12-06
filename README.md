@@ -8,7 +8,7 @@ This project demonstrates full-stack development, containerization, monitoring, 
 
 ## 📌 **Architecture Diagram**
 
-![Architecture Diagram](screenshots/Architectural diagram.png)
+![Architecture Diagram](screenshots/Architectural_diagram.png)
 
 ---
 
@@ -92,25 +92,25 @@ This project demonstrates full-stack development, containerization, monitoring, 
 
 ## 🔹 **1. FastAPI Backend — Swagger API Docs**
 
-![Backend API](screenshots/expense tracker API.png)
+![Backend API](screenshots/expense_tracker_API.png)
 
 ---
 
 ## 🔹 **2. Frontend UI — Expense Tracker Dashboard**
 
-![Frontend Dashboard](screenshots/Expense tracker dashboard.png)
+![Frontend Dashboard](screenshots/Expense_tracker_dashboard.png)
 
 ---
 
 ## 🔹 **3. Grafana — List of Dashboards**
 
-![Grafana Dashboards](screenshots/Grafana dashboard.png)
+![Grafana Dashboards](screenshots/Grafana_dashboard.png)
 
 ---
 
 ## 🔹 **4. Grafana — Node Exporter Dashboard**
 
-![Node Exporter Dashboard](screenshots/grafana dashboard node exporter.png)
+![Node Exporter Dashboard](screenshots/grafana_dashboard_node_exporter.png)
 
 ---
 
@@ -134,13 +134,13 @@ This project demonstrates full-stack development, containerization, monitoring, 
 
 ## 🔹 **8. AWS EC2 Overview**
 
-![EC2 Overview](screenshots/EC2 instances.png)
+![EC2 Overview](screenshots/ec2_instances.png)
 
 ---
 
 ## 🔹 **9. Two-Tier DevOps EC2 Instance Details**
 
-![EC2 Instance Details](screenshots/two-tier-devops ec2 instance.png)
+![EC2 Instance Details](screenshots/two_tier_devops_ec2_instance.png)
 
 ---
 
